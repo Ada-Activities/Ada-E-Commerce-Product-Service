@@ -4,6 +4,7 @@ env:
   variables:
     AWS_DEFAULT_REGION: us-east-1
     IMAGE_REPO_NAME: ecommerce/products
+    TABLE_NAME: test-table
 
 phases:
   pre_build:
