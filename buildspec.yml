@@ -5,6 +5,12 @@ env:
     AWS_DEFAULT_REGION: us-east-1
     IMAGE_REPO_NAME: ecommerce/products
     TABLE_NAME: test-table
+    KEY_Name: product_key
+    BUCKET_NAME: test-bucket
+    AWS_DEFAULT_REGION: us-east-1
+    AWS_ACCESS_KEY_ID: testing
+    AWS_SECRET_ACCESS_KEY: testing
+    S3_DEFAULT_KEY: S3_DEFAULT_KEY
 
 phases:
   pre_build:
