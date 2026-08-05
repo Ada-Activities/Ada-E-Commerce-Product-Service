@@ -6,12 +6,12 @@ from flask import Blueprint, request, Response, jsonify
 from ..utilities import build_and_run_update, get_items_with_filters, validate_item
 
 bp = Blueprint("products_bp", __name__, url_prefix="/products")
-KEY_NAME = os.environ.get("KEY_NAME")
 
 
 @bp.post("/")
 def create_product():
     product_info = request.get_json()
+    KEY_NAME = os.environ.get("KEY_NAME")
     product_info[KEY_NAME] = str(uuid4())
 
     if product_info.get("price"):
@@ -64,6 +64,7 @@ def update_product(product_id):
 
 @bp.delete("/<product_id>")
 def delete_product(product_id):
+    KEY_NAME = os.environ.get("KEY_NAME")
     products_table.delete_item(Key={KEY_NAME: product_id})
 
     return Response(status=204, mimetype="application/json")
