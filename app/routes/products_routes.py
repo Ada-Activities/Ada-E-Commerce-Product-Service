@@ -47,6 +47,10 @@ def get_single_product(product_id):
 @bp.patch("/<product_id>")
 def update_product(product_id):
     body = request.get_json()
+    price = body.get("price")
+
+    if price:
+        body["price"] = Decimal(str(price))
     try:
         build_and_run_update(products_table, product_id, body)
         return Response(status=204, mimetype="application/json")
